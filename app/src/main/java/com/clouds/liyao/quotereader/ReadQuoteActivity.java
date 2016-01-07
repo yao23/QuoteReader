@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class ReadQuoteActivity extends AppCompatActivity {
@@ -62,10 +63,15 @@ public class ReadQuoteActivity extends AppCompatActivity {
         }
     }
 
+    private ListView mListView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read_quote);
+        mListView = (ListView) findViewById(R.id.quotes_list);
+        mListView.setAdapter(new QuoteAdapter(this));
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

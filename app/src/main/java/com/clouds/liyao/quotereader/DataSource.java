@@ -69,5 +69,8 @@ public class DataSource {
         mPhotoPool = new ArrayList<>();
         mQuotePool = new ArrayList<>();
         mPhotoHdPool = new ArrayList<>();
+        setupPhotoPool();
+        setupQuotePool();
+        setupPhotoHDPool();
     }
 }
