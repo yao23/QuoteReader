@@ -1,6 +1,7 @@
 package com.clouds.liyao.quotereader;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -71,6 +73,16 @@ public class ReadQuoteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_read_quote);
         mListView = (ListView) findViewById(R.id.quotes_list);
         mListView.setAdapter(new QuoteAdapter(this));
+
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView arg0, View arg1, int position, long arg3) {
+                Intent i = new Intent(ReadQuoteActivity.this, QuoteDetail.class);
+                i.putExtra("position", position);
+                startActivity(i);
+            }
+        });
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
